@@ -2,8 +2,9 @@ import React, { useState, useEffect} from 'react';
 import { ScrollView, View,  Text, FlatList, Image} from 'react-native';
 import axios from 'axios';
 import buildArticle from '../helpers/buildArticle';
-import styles from '../styles/styles'
-import { ElementType, Category, Author } from '../types'
+import styles from '../styles/styles';
+import { ElementType, Category, Author } from '../types';
+import * as Font from 'expo-font';
 
 const Article = ({ navigation }) => {
   const [article, setArticle] = useState(undefined);
@@ -15,6 +16,10 @@ const Article = ({ navigation }) => {
   }
 
   useEffect(() => {
+    Font.loadAsync({
+      'roboto-medium': require('../assets/fonts/Roboto-Medium.ttf'),
+      'roboto-light': require('../assets/fonts/Roboto-Light.ttf')
+  });
     fetchArticle();
   }, []);
   
@@ -43,11 +48,13 @@ const Article = ({ navigation }) => {
         })}
       </View>
       <Text style={styles.articleTitle}>{article.title}</Text>
-      <FlatList
-        data={article.body.elements}
-        renderItem={({ item }: { item: ElementType}) => buildArticle(item)}
-        keyExtractor={(item: any, i: number) => i.toString()}
-      />
+      <View style={styles.content}>  
+        <FlatList
+          data={article.body.elements}
+          renderItem={({ item }: { item: ElementType}) => buildArticle(item)}
+          keyExtractor={(item: any, i: number) => i.toString()}
+        />
+      </View>
     </ScrollView>
   );
 }

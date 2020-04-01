@@ -7,7 +7,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Roboto'
+    fontFamily: 'roboto-medium'
+  },
+  content: {
+    padding: 15,
   },
   articleTopImage: {
     width: width,
@@ -15,11 +18,10 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   articleImage: {
-    alignSelf: 'center',
     width: width,
-    height: height,
+    height: 222 * width/300,
     resizeMode: 'contain',
-    padding: 10,
+    // padding: 10,
   },
   articleImageCaption: {
     color: 'gray',
@@ -56,11 +58,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop:20,
     marginBottom: 15,
+    fontFamily: 'roboto-medium'
   },
   articleParagraph: {
-    marginHorizontal: 10,
+    // marginHorizontal: 10,
     marginVertical: 7,
-    fontFamily: 'Roboto'
+    fontFamily: 'roboto-light'
   },
   quote: {
     color: 'red',
