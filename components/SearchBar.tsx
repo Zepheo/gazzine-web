@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, Button } from 'react-native';
 import styles from '../styles/styles';
 
 interface Props {
@@ -12,7 +12,9 @@ const SearchBar: FunctionComponent<Props> = (props) => {
     <View style={styles.searchBar}>
       <TextInput placeholder={'Search'} 
       onSubmitEditing={(event) => search(event.nativeEvent.text)}
+      clearButtonMode='always'
       />
+      <Button title='Submit' color='#841584'></Button>
     </View>
   );
 };

@@ -58,7 +58,7 @@ const ArticleList: NavigationStackScreenComponent = ({ navigation }) => {
   
   const updateArticles = async (pageNr: number) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/?type=AllPosts&page=${pageNr}`);
+      const { data } = await axios.get(`https://europe-west1-master-plateau-272609.cloudfunctions.net/getPosts?type=AllPosts&page=${pageNr}`);
       setArticles([...articles, ...data ]);
     } catch(err) {
       setMoreArticles(false);
@@ -81,7 +81,7 @@ const ArticleList: NavigationStackScreenComponent = ({ navigation }) => {
     
     if ( search ) {
       try {
-        const { data } = await axios.get(`http://localhost:8080/?type=Search&page=${pageNr}&search=${search}`);
+        const { data } = await axios.get(`https://europe-west1-master-plateau-272609.cloudfunctions.net/getPosts?type=Search&page=${pageNr}&search=${search}`);
         setArticles([...articles, ...data]);
       } catch (error) {
         setMoreArticles(false);
@@ -92,7 +92,7 @@ const ArticleList: NavigationStackScreenComponent = ({ navigation }) => {
       const authorValue = author ? author : '';
 
       try {
-        const { data } = await axios.get(`http://localhost:8080/?type=AllPosts&page=${pageNr}&category=${categoryValue}&author=${authorValue}`);
+        const { data } = await axios.get(`https://europe-west1-master-plateau-272609.cloudfunctions.net/getPosts?type=AllPosts&page=${pageNr}&category=${categoryValue}&author=${authorValue}`);
         setArticles([...articles, ...data]);
       } catch(err) {
         setMoreArticles(false);
@@ -128,7 +128,8 @@ const ArticleList: NavigationStackScreenComponent = ({ navigation }) => {
 }
 
 ArticleList.navigationOptions = {
-  title: "Articles"
+  title: "Articles",
+  animationEnabled: false,
 }
 
 export default ArticleList;

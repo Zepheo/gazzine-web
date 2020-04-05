@@ -7,13 +7,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-<<<<<<< HEAD:client/styles/styles.ts
-    fontFamily: 'roboto-medium'
   },
   content: {
     padding: 15,
-=======
->>>>>>> master:styles/styles.ts
   },
   articleTopImage: {
     width: width,
@@ -69,15 +65,9 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-medium'
   },
   articleParagraph: {
-<<<<<<< HEAD:client/styles/styles.ts
-    // marginHorizontal: 10,
-    marginVertical: 7,
-    fontFamily: 'roboto-light'
-=======
     marginVertical: 7,
     lineHeight: 20,
     fontFamily: 'roboto-regular',
->>>>>>> master:styles/styles.ts
   },
   quote: {
     color: '#aaa',
@@ -175,7 +165,13 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   searchBar: {
-
+    width: width,
+    padding: 5,
+    height: 30,
+    borderColor: '#000',
+    borderWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   }
 });
 

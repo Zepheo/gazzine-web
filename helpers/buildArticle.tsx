@@ -1,4 +1,5 @@
 import React from 'react';
+import Gallery from 'react-native-image-gallery';
 import ImageLoader from '../components/ImageLoader';
 import QuoteBuilder from '../components/QuoteBuilder';
 import ParagraphBuilder from '../components/ParagraphBuilder';
@@ -17,7 +18,13 @@ const buildArticle = (element: any) => {
     case 'header':
       return <HeaderBuilder header={element} />;
     case 'imageGallery':
-      return <ImageLoader image={element.images[0]}/>;
+      const gallery = element.images.map((image) => {
+        return { source: { uri: image.src } }
+      })
+      return <Gallery
+        style={{ height: 350, backgroundColor: 'black' }}
+        images={gallery}
+      />;
     case 'listItem':
       return <ListItemBuilder listItem={element}/>;
     default:

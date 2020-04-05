@@ -12,7 +12,7 @@ const Article: NavigationStackScreenComponent = ({ navigation }) => {
   const fetchArticle = async () => {
     const { slug } = navigation.state.params;
     try {
-      const { data } = await axios.get(`http://localhost:8080/?type=SinglePost&slug=${slug}`);
+      const { data } = await axios.get(`https://europe-west1-master-plateau-272609.cloudfunctions.net/getPosts?type=SinglePost&slug=${slug}`);
       setArticle(data);      
     } catch (error) {
       console.error(error.message);
@@ -58,6 +58,11 @@ const Article: NavigationStackScreenComponent = ({ navigation }) => {
       </View>
     </ScrollView>
   );
+}
+
+
+Article.navigationOptions = {
+  animationEnabled: false,
 }
 
 export default Article;
