@@ -1,64 +1,95 @@
-import React, { useState, useEffect} from 'react';
-import { ScrollView, View,  Text, FlatList, Image} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {
+  ScrollView, View, Text, FlatList, Image
+} from 'react-native';
 import axios from 'axios';
-import { NavigationStackScreenComponent } from 'react-navigation-stack';
+import {
+  NavigationStackScreenComponent,
+} from 'react-navigation-stack';
 import buildArticle from '../helpers/buildArticle';
 import styles from '../styles/styles';
-import { ElementType, Category, Author, ArticleWithBody } from '../types'
+import {
+  ElementType, Category, Author, ArticleWithBody,
+} from '../types';
+import Loading from '../components/Loading';
+import NotFound from '../components/NotFound';
+import baseUrl from '../vars';
 
 const Article: NavigationStackScreenComponent = ({ navigation }) => {
   const [article, setArticle] = useState<ArticleWithBody>(undefined);
-  
+  const [articleNotFound, setArticleNotFound] = useState<boolean>(false);
+
   const fetchArticle = async () => {
     const { slug } = navigation.state.params;
     try {
+<<<<<<< HEAD
       const { data } = await axios.get(`https://europe-west1-master-plateau-272609.cloudfunctions.net/getPosts?type=SinglePost&slug=${slug}`);
       setArticle(data);      
+=======
+      const { data } = await axios.get(`${baseUrl}?type=SinglePost&slug=${slug}`);
+      setArticle(data);
+>>>>>>> master
     } catch (error) {
+      setArticleNotFound(true);
       console.error(error.message);
-    }    
+    }
+  };
+
+  const goBack = () => {
+    setArticle(undefined);
+    navigation.navigate('ArticleList');
   }
 
   useEffect(() => {
+    setArticleNotFound(false);
     fetchArticle();
-    return () => {setArticle(undefined)}
-  }, []);
-  
-  if(article === undefined) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
-    )
+    return () => setArticle(undefined);
+  }, [navigation]);
+
+  if (articleNotFound) {
+    return <NotFound goBack={goBack}/>
   }
-  
+
+  if (!article) {
+    return (
+      <Loading/>
+    );
+  }
+
   return (
     <ScrollView>
-      <Image style={styles.articleTopImage} source={{uri: article.image}}/>
+      <Image style={styles.articleTopImage} source={{ uri: article.image }} />
       <View style={styles.articleContainer}>
         <View style={styles.articleCategories}>
-          {article.category.map((cat: Category) => <Text key={cat.id} style={styles.articleCategory}>{cat.name}</Text>)}
+          {article.category.map((cat: Category) => (
+            <Text key={cat.id} style={styles.articleCategory}>{cat.name}</Text>
+          ))}
         </View>
         <View>
-          {article.authors.map((author: Author) => {
-            return (
-              <View key={author.id} style={styles.articleAuthor}>
-                <Image style={styles.articleAuthorImage} source={{ uri: author.profilePictureUrl}} />
-                <Text style={styles.articleAuthorName} >{author.name}</Text>
-              </View>
-            )
-          })}
+          {article.authors.map((author: Author) => (
+            <View key={author.id} style={styles.articleAuthor}>
+              <Image
+                style={styles.articleAuthorImage}
+                source={{ uri: author.profilePictureUrl }}
+              />
+              <Text style={styles.articleAuthorName}>{author.name}</Text>
+            </View>
+          ))}
         </View>
         <Text style={styles.articleTitle}>{article.title}</Text>
         <FlatList
           data={article.body.elements}
           renderItem={({ item }: { item: ElementType}) => buildArticle(item)}
-          keyExtractor={(item: any) => item.k}
+          keyExtractor={(item: ElementType) => item.k}
         />
       </View>
     </ScrollView>
   );
-}
+};
+
+Article.navigationOptions = {
+  animationEnabled: false,
+};
 
 
 Article.navigationOptions = {

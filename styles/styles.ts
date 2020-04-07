@@ -164,7 +164,16 @@ const styles = StyleSheet.create({
   listItem: {
     lineHeight: 20,
   },
+  listItemBullet: {
+    marginRight: 5,
+  },
+  searchBarInput: {
+    flexGrow: 1,
+    paddingHorizontal: 10,
+    fontSize: 18,
+  },
   searchBar: {
+<<<<<<< HEAD
     width: width,
     padding: 5,
     height: 30,
@@ -172,6 +181,48 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     flexDirection: 'row',
     justifyContent: 'space-around'
+=======
+    flexDirection: "row",
+    margin: 9,
+    paddingVertical: 5,
+    paddingHorizontal: 7,
+    backgroundColor: '#ddd',
+    borderRadius: 15,
+  },
+  searchBarSearch: {
+    height: 20,
+    width: 20,
+  },
+  searchBarCancel: {
+    height: 20,
+    width: 20,
+  },
+  loading: {
+    height: height,
+    width: width,
+    justifyContent: 'center',
+    alignContent: 'center'
+  },
+  imageGalleryDotsContainer: {
+    flexDirection: 'row', 
+    justifyContent: 'center'
+  },
+  imageGalleryDots: {
+    height: 10, 
+    width: 10, 
+    backgroundColor: '#595959', 
+    margin: 8, 
+    borderRadius: 5 
+  },
+  notFoundContainer: {
+
+  },
+  notFoundHeader: {
+    textAlign: 'center',
+  },
+  notFoundText: {
+    textAlign: 'center',
+>>>>>>> master
   }
 });
 

@@ -7,8 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest",
-    "functions": "functions-framework --target=getAllPosts",
-    "build": "tsc ./cloudFunctions/*.ts"
+    "lint": "eslint **/*.tsx"
   },
   "proxy": "http://localhost:8080",
   "jest": {
@@ -32,6 +31,7 @@
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-gallery-swiper": "^1.25.3",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-image-gallery": "^2.1.5",
     "react-native-safe-area-context": "0.6.0",

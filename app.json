@@ -1,6 +1,10 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "Gazzine Web Test SALT",
+=======
+    "name": "Gazzine Web Project",
+>>>>>>> master
     "slug": "gazzine-web",
     "privacy": "public",
     "sdkVersion": "36.0.0",
