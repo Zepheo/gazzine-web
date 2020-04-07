@@ -22,13 +22,8 @@ const Article: NavigationStackScreenComponent = ({ navigation }) => {
   const fetchArticle = async () => {
     const { slug } = navigation.state.params;
     try {
-<<<<<<< HEAD
-      const { data } = await axios.get(`https://europe-west1-master-plateau-272609.cloudfunctions.net/getPosts?type=SinglePost&slug=${slug}`);
-      setArticle(data);      
-=======
       const { data } = await axios.get(`${baseUrl}?type=SinglePost&slug=${slug}`);
       setArticle(data);
->>>>>>> master
     } catch (error) {
       setArticleNotFound(true);
       console.error(error.message);

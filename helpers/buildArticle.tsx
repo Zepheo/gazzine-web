@@ -19,17 +19,7 @@ const buildArticle = (element: any) => {
     case 'header':
       return <HeaderBuilder header={element} />;
     case 'imageGallery':
-<<<<<<< HEAD
-      const gallery = element.images.map((image) => {
-        return { source: { uri: image.src } }
-      })
-      return <Gallery
-        style={{ height: 350, backgroundColor: 'black' }}
-        images={gallery}
-      />;
-=======
       return <ImageGalleryBuilder element={element} />;
->>>>>>> master
     case 'listItem':
       return <ListItemBuilder listItem={element} />;
     default:

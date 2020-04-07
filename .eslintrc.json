@@ -5,14 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-<<<<<<< HEAD
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-=======
         "plugin:@typescript-eslint/recommended",
         "airbnb"
->>>>>>> master
     ],
     "globals": {
         "Atomics": "readonly",

@@ -173,15 +173,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   searchBar: {
-<<<<<<< HEAD
-    width: width,
-    padding: 5,
-    height: 30,
-    borderColor: '#000',
-    borderWidth: 2,
-    flexDirection: 'row',
-    justifyContent: 'space-around'
-=======
     flexDirection: "row",
     margin: 9,
     paddingVertical: 5,
@@ -222,7 +213,6 @@ const styles = StyleSheet.create({
   },
   notFoundText: {
     textAlign: 'center',
->>>>>>> master
   }
 });
 
